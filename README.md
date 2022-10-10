@@ -12,46 +12,46 @@ Gewerblich Technische Schule Offenburg
 # Inhaltsverzeichnis
 
 
-[Inhaltsverzeichnis 1](#_Toc108400696)
+[Inhaltsverzeichnis 1](#Inhaltsverzeichnis)
 
-[Einführung 2](#_Toc108400697)
+[Einführung 2](#Einführung)
 
-[Verdrahtung der Komponenten 2](#_Toc108400698)
+[Verdrahtung der Komponenten 2](#VerdrahtungderKomponenten)
 
-[DHT12 6](#_Toc108400699)
+[DHT12 6](#DHT12)
 
-[WebServer 8](#_Toc108400700)
+[WebServer 8](#WebServer)
 
-[TFT-Bildschirm 9](#_Toc108400701)
+[TFT-Bildschirm 9](#TFT)
 
-[Zeichnen der Graphen 14](#_Toc108400702)
+[Zeichnen der Graphen 14](#ZeichnenderGraphen)
 
-[Zeichnen der Sensordaten 15](#_Toc108400703)
+[Zeichnen der Sensordaten 15](#ZeichnenderSensordaten)
 
-[Auto-Aktualisierung des Bildschirm 16](#_Toc108400704)
+[Auto-Aktualisierung des Bildschirm 16](#Auto-AktualisierungdesBildschirm)
 
-[Wohlgeformtes XML 17](#_Toc108400705)
+[Wohlgeformtes XML 17](#WohlgeformtesXML)
 
-[Allgemeines zum JSON-Format 18](#_Toc108400706)
+[Allgemeines zum JSON-Format 18](#AllgemeineszumJSON-Format)
 
-[Speichern und Laden einer JSON-Datei 20](#_Toc108400707)
+[Speichern und Laden einer JSON-Datei 20](#SpeichernundLadeneinerJSON-Datei)
 
-[Die handleroot Funktion und die HTML 21](#_Toc108400708)
+[Die handleroot Funktion und die HTML 21](#DiehandlerootFunktionunddieHTML)
 
-[Probleme und Lösungen 28](#_Toc108400709)
+[Probleme und Lösungen 28](#ProblemeundLösungen)
 
-[Kommunikationsplan 29](#_Toc108400710)
+[Kommunikationsplan 29](#Kommunikationsplan)
 
-[Schlusswort 30](#_Toc108400711)
+[Schlusswort 30](#Schlusswort)
 
-[Abbildungsverzeichnis 31](#_Toc108400712)
+[Literaturverzeichnis 31](#Literaturverzeichnis)
 
-[Literaturverzeichnis 31](#_Toc108400713)
-
+<a name="Einführung"></a>
 # Einführung
 
 Das Projekt begann am 11-05-2022. Bis zu diesem Tag haben wir die Sensoren entdeckt, mit denen wir arbeiten sollten. Diese sind ein DHT12 und ein TFT-Bildschirm. Wir machten uns schnell auf die Suche nach Libraries für unsere Sensoren. Natürlich gibt es im Internet viele verschiedene Libraries, und wir stießen auf einige, die überhaupt nicht funktionierten. Aber das hat uns nicht entmutigt! Denn wie jeder Entwickler ist auch unser Antrieb der Erfolg unseres Programms.
 
+<a name="VerdrahtungderKomponenten"></a>
 # Verdrahtung der Komponenten
 
 Bevor wir beginnen stellen wir unsere Komponenten und den Verdrahtungsplan vor.
@@ -98,6 +98,7 @@ _Figure 7: Verdrahtung_
 
 Die Pins D3(0), D4(2) und D8(15) des TFT werden mit D3, D4 und D8 am D1 Mini verbunden. Die Pins D1(5) und D2(4) werden mit D1 und D2 am D1 Mini verbunden (Figure 7).
 
+<a name="DHT12"></a>
 # DHT12
 
 Unser erstes Ziel war der DHT12-Treiber. Die DHT-12 library ermöglicht uns das Auslesen der PIN-Informationen unseres Sensors. Zurück bekommen wir die Temperatur und Feuchtigkeitswerte des Sensors.
@@ -142,6 +143,7 @@ sensorDht12.humidity()
 
 Dann starteten wir das Programm. Und das war ein Erfolg! In der Konsole konnten wir die Werte der Sensoren sehen. Da wir wussten, dass unser Sensor funktioniert, wandten wir uns nun der Erstellung der Webseite zu.
 
+<a name="WebServer"></a>
 # WebServer
 
 Wir haben das Webserver-Programm von unserem Lehrer erhalten.
@@ -182,6 +184,7 @@ Wir speichern in currentTime die aktuelle Zeit und überschreiben diese immer we
 
 _Figure 8: currentTime Verwendung_
 
+<a name="TFT"></a>
 # TFT-Bildschirm
 
 Bei dem Bildschirm hatten wir große Schwierigkeiten, ihn zum Funktionieren zu bringen. Denn nach vielen Versuchen und getesteten Libraries haben wir endlich eine gefunden, die funktioniert:
@@ -272,6 +275,7 @@ Mit einer for-Loop zeichnen wir dadurch in Y-Richtung 14 Zahlengeradenunterteilu
 
 Die x-Richtung stellt die 10 letzten gespeicherten Messungen dar, das bedeutet der äußerste Wert (ganz rechts) ist immer der aktuellste Wert.
 
+<a name="ZeichnenderGraphen"></a>
 ## Zeichnen der Graphen
 
 Zum Zeichnen der Graphen auf dem Bildschirm haben wir eine weitere Funktion geschrieben: drawGraphs() (Figure 13).
@@ -298,6 +302,7 @@ Mit einer for-Schleife zeichnen wir für jede stelle in der Json-Liste die Tempe
 
 Hier haben wir die funktion color565() aus der rgb library verwendet um rgb-Werte in Hex umzuwandeln.
 
+<a name="ZeichnenderSensordaten"></a>
 ## Zeichnen der Sensordaten
 
 Zum Zeichnen der Sensordaten haben wir die Funktion drawTempHum() (Figure 14) geschrieben. Dadurch werden die Sensordaten fix an de Koordinaten x=5 y=20 und x=5 y= 30 als Text auf dem Bildschirm gezeichnet.
@@ -314,6 +319,7 @@ _Figure 15 getTemperature und getHumidity Funktionen_
 
 Da wir den Sensor bereits initialisiert haben können wir diese Funktionen (Figure 15) nun überall verwenden.
 
+<a name="Auto-AktualisierungdesBildschirm"></a>
 ## Auto-Aktualisierung des Bildschirm
 
 Dazu haben wir die Schleife aus der Datei main.py verwendet, die uns zur Verfügung gestellt wurde (main.py) und sie für uns angepasst,
@@ -324,6 +330,7 @@ _Figure 16 Main While Loop_
 
 Eine while-Schleife läuft durgehend ab, bis eine Exception Eintritt, bei der der Server sich selbst beendet (Figure 16). Server.handleClient() emöglicht dem Servor Verbindungsanfragen zu bearbeiten. Die if-Condition prüft ob eine Sekunde verstrichen ist und überschreibt dann den zuvor gespeicherten currentTime Wert mit der aktuellen Zeit. Wir versuchen als nächstes in einem try-except block die Json mit unserer geschriebenen setJson() Funktion zu aktualisieren. Diese wird im nächsten try block benötigt: zum zeichnen der Graphen. Nach der drawGraphs() Funktion wird die draw TempHum() Funktion zum Zeichnen der aktuellen Sensordaten ausgeführt. Sollte einer der Schritte fehlschlagen, erhalten wir eine Benachrichtigung in der Konsole.
 
+<a name="WohlgeformtesXML"></a>
 # Wohlgeformtes XML
 
 Wir haben in unserem Projekt nicht die Ausgabe als XML eingebaut, gehen aber dennoch auf das Format ein (wiki.selfhtml.org, 2022).
@@ -338,6 +345,7 @@ Wohlgeformtheit was XML angeht, bedeutet dass eine Datei die Regeln von XML korr
 
 _Figure 17 wohlgeformtes XML von wiki.selfhtml.org_
 
+<a name="AllgemeineszumJSON-Format"></a>
 # Allgemeines zum JSON-Format
 
 JSON ist ein leichtgewichtiges Datenaustauschformat. Der standard wurde festgelegt von ECMA, einem internationalen Branchenverband, der sich der Standardisierung von Informations- und Kommunikationssystemen widmet (vgl ecma-international.org). JSON steht für Javascript Object Notation, ist jedoch eine sprachenunabhängige Konvention und wird in C-Sprachen, Java/Javascript, Perk, Python und vielen weiteren verwendet (json.org, 2022).
@@ -365,6 +373,7 @@ In Dictionaryform beginnt und endet sie mit geschweiften Klammern.
 
 Für uns erschien es am sinnvollsten die Json in Arrayform zu gestalten, die dictionaries enthält.
 
+<a name="SpeichernundLadeneinerJSON-Datei"></a>
 # Speichern und Laden einer JSON-Datei
 
 Um Daten in JSON-Dateien zu speichern, müssen Sie zunächst die json Library importieren(Figure 20).
@@ -401,6 +410,7 @@ Das Laden der Json ist dagegen vergleichsweise einfach.
 
 Wir haben dies als Funktion loadJson() definiert (Figure 22), die uns die Json als Liste zurückgibt.
 
+<a name="DiehandlerootFunktionunddieHTML"></a>
 # Die handleroot Funktion und die HTML
 
 Mit der Funktion handleroot() legen wir die html String fest, die der Server an die Clients schickt.
@@ -459,6 +469,7 @@ Die Seite sieht damit dementsprechend wie in der Abbildung aus (Figure 29).
 
 Über die Pfade „/json" „/humidityValue" und „temperatureValue" lassen sich außerdem die json als rohe Json Datei anzeigen lassen, sowie die Feuchtigkeits- und Temperaturwerte alleine als plainValue.
 
+<a name="ProblemeundLösungen"></a>
 # Probleme und Lösungen
 
 Da der Server ständig die Verbindung trennte, wenn wir eine zu große HTML Datei hatten, haben wir in der ESP8266WebServer.py in der \_\_sendPage() Funktion die Datengröße beim read Befehl in Zeile 67 von 64 auf -1 gesetzt, damit wir keine Beschränkung für Datengröße haben (Figure 30).
@@ -481,6 +492,7 @@ Die Anzahl an Clients, die mit dem Server verbunden sein können war zuvor auf 1
 
 _Figure 32: Server begin Funktion_
 
+<a name="Kommunikationsplan"></a>
 # Kommunikationsplan
 
 | Nachname | Vorname | E-Mail |
@@ -492,78 +504,15 @@ Im Allgemeinen teilten wir uns die Arbeit gut auf. Martin war jedoch für den Py
 
 Marvin kümmerte sich um die Dokumentation des gesamten Projekts. Er führte seinerseits auch viele Recherchen durch, um Martin zu helfen und Martin ergänzte die Dokumentation entsprechend. Ein Teil des Codes wurde durch Coprogramming im Unterricht durchgeführt und der Rest Zuhause.
 
+<a name="Schlusswort"></a>
 # Schlusswort
 
 Zusammenfassend lässt sich sagen, dass die Arbeit gut verteilt war. Jeder hatte etwas zu tun, sei es bei der Dokumentation oder bei der Hilfe bei der Suche nach Libraries. Die Arbeit wurde in einer guten Arbeitsatmosphäre erledigt.
 
 Unsere Kommunikationsmittel waren hauptsächlich das Telefon, sei es WhatsApp oder auch Discord.
 
-# Abbildungsverzeichnis
 
-[Figure 1: D1 Mini Lite 3](#_Toc108400662)
-
-[Figure 2: DHT SHield 3](#_Toc108400663)
-
-[Figure 3: TFT 1.4 Shield (vorne) 4](#_Toc108400664)
-
-[Figure 4:TFT 1.4 Shield (hinten) 4](#_Toc108400665)
-
-[Figure 5: Dual Base ProtoBoard 5](#_Toc108400666)
-
-[Figure 6: Zusammengebaut (Photo) 5](#_Toc108400667)
-
-[Figure 7: Verdrahtung 6](#_Toc108400668)
-
-[Figure 8: currentTime Verwendung 10](#_Toc108400669)
-
-[Figure 9: Initialisierung TFT 11](#_Toc108400670)
-
-[Figure 10: Funktion drawCoordinateSystem 12](#_Toc108400671)
-
-[Figure 11: rgb\_text Libraryänderung 13](#_Toc108400672)
-
-[Figure 12: fill\_rectangle Funktion 13](#_Toc108400673)
-
-[Figure 13 drawGraphs Funktion 14](#_Toc108400674)
-
-[Figure 14 drawTempHum Funktion 16](#_Toc108400675)
-
-[Figure 15 getTemperature und getHumidity Funktionen 16](#_Toc108400676)
-
-[Figure 16 Main While Loop 17](#_Toc108400677)
-
-[Figure 17 wohlgeformtes XML von wiki.selfhtml.org 18](#_Toc108400678)
-
-[Figure 18: JSON Objekt 19](#_Toc108400679)
-
-[Figure 19: JSON Array 19](#_Toc108400680)
-
-[Figure 20 json Import 20](////Users/martin/Documents/Abgabe_Projekt/Doku_Marvin_Martin.docx#_Toc108400681)
-
-[Figure 21: setJson Funktion 21](#_Toc108400682)
-
-[Figure 22: loadJson Funktion 22](#_Toc108400683)
-
-[Figure 23: Variablen Initialisierung handleroot 23](#_Toc108400684)
-
-[Figure 24: Variablenüberschreiben handleroot 24](#_Toc108400685)
-
-[Figure 25 Stringformatter Variablenübergabe 25](#_Toc108400686)
-
-[Figure 26: Ausschnitt der HTML String 26](#_Toc108400687)
-
-[Figure 27 JSON Download Button 26](#_Toc108400688)
-
-[Figure 28 get\_css Funktion 27](#_Toc108400689)
-
-[Figure 29: Ausgabe im Webbrowser 28](#_Toc108400690)
-
-[Figure 30: sendPage Änderung 29](#_Toc108400691)
-
-[Figure 31: handleClient Funktionsänderung 29](#_Toc108400692)
-
-[Figure 32: Server begin Funktion 30](#_Toc108400693)
-
+<a name="Literaturverzeichnis"></a>
 # Literaturverzeichnis
 
 _wiki.selfhtml.org_. (10. July 2022). Von XML/REGELN/Wohlgeformtheit: https://wiki.selfhtml.org/wiki/XML/Regeln/Wohlgeformtheit abgerufen
