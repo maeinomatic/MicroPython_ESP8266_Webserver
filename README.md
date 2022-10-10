@@ -1,10 +1,8 @@
-![image1](/docFiles/image1.png) ![image2](./docFiles/image2.png)
-
 # Gruppe 3
 
 # – ESP8266 mit TFT und DHT12 Sensor
 
-![image3](/docFiles/image3.png) ![image4](/docFiles/image4.png)
+![image3](/docFiles/image1.png)
 
 Potozki Martin & Schiff Marvin
 
@@ -58,35 +56,35 @@ Das Projekt begann am 11-05-2022. Bis zu diesem Tag haben wir die Sensoren entde
 
 Bevor wir beginnen stellen wir unsere Komponenten und den Verdrahtungsplan vor.
 
-![](RackMultipart20221010-1-rtjmky_html_c28cf54ed121857a.jpg)
+![image2](/docFiles/image2.png)
 
 _Figure 1: D1 Mini Lite_
 
 Unser Microcontroller auf den wir unseren Micropython Server umsertzen (Figure 1).
 
-![](RackMultipart20221010-1-rtjmky_html_df9837fe3fbad396.jpg)
+![](/docFiles/image3.png)
 
 _Figure 2: DHT SHield_
 
 Der DHT Shield von Wemos mit einem DHT12 Sensor zum Messen von Temperatur und Feuchtigkeit (Figure 2).
 
-![](RackMultipart20221010-1-rtjmky_html_c803f12bf075a21c.jpg)
+![](/docFiles/image4.png)
 
 _Figure 3: TFT 1.4 Shield (vorne)_
 
-![](RackMultipart20221010-1-rtjmky_html_a0622ba127fbae37.jpg)
+![](/docFiles/image5.png)
 
 _Figure 4:TFT 1.4 Shield (hinten)_
 
 Der Bildschirm ist ein 1.44" TFT LCD von Wemos (Figure 3 und 4).
 
-![](RackMultipart20221010-1-rtjmky_html_58967cd8d5185142.jpg)
+![](/docFiles/image6.png)
 
 _Figure 5: Dual Base ProtoBoard_
 
 Ein einfaches Erweiterungsboard das uns die Steckverbindungen verdoppelt, sodass alles einfach zusammengesteckt werden kann.
 
-![Picture 15](RackMultipart20221010-1-rtjmky_html_d68b24cbdaf935f1.gif)
+![Picture 15](/docFiles/image7.png)
 
 _Figure 6: Zusammengebaut (Photo)_
 
@@ -94,7 +92,7 @@ Hier sehen wir das ganze zusammen (Figure 6).
 
 Im Folgendenen zeigen wir anhand einer Skizze, wie die Verdrahtung genau aussieht.
 
-![](RackMultipart20221010-1-rtjmky_html_153dc3c8e9d89ec2.jpg)
+![](/docFiles/image8.png)
 
 _Figure 7: Verdrahtung_
 
