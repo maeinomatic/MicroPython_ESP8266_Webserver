@@ -1,4 +1,4 @@
-![Shape1](image1.png) ![Shape2](docFiles/image1.png)
+![Shape1](image1.png) ![Shape2](./docFiles/image1.png)
 
 # Gruppe 3
 
