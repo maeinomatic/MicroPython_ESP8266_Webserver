@@ -2,7 +2,8 @@
 
 # – ESP8266 mit TFT und DHT12 Sensor
 
-![image3](/docFiles/image1.png)
+![image1](/docFiles/image1.png)
+![](docFiles/image35.png)
 
 Potozki Martin & Schiff Marvin
 
@@ -56,35 +57,35 @@ Das Projekt begann am 11-05-2022. Bis zu diesem Tag haben wir die Sensoren entde
 
 Bevor wir beginnen stellen wir unsere Komponenten und den Verdrahtungsplan vor.
 
-![image2](/docFiles/image2.png)
+![image2](docFiles/image2.jpeg)
 
 _Figure 1: D1 Mini Lite_
 
 Unser Microcontroller auf den wir unseren Micropython Server umsertzen (Figure 1).
 
-![](/docFiles/image3.png)
+![image3](/docFiles/image3.jpeg)
 
 _Figure 2: DHT SHield_
 
 Der DHT Shield von Wemos mit einem DHT12 Sensor zum Messen von Temperatur und Feuchtigkeit (Figure 2).
 
-![](/docFiles/image4.png)
+![image4](/docFiles/image4.jpeg)
 
 _Figure 3: TFT 1.4 Shield (vorne)_
 
-![](/docFiles/image5.png)
+![image5](/docFiles/image5.jpeg)
 
 _Figure 4:TFT 1.4 Shield (hinten)_
 
 Der Bildschirm ist ein 1.44" TFT LCD von Wemos (Figure 3 und 4).
 
-![](/docFiles/image6.png)
+![image6](/docFiles/image6.jpeg)
 
 _Figure 5: Dual Base ProtoBoard_
 
 Ein einfaches Erweiterungsboard das uns die Steckverbindungen verdoppelt, sodass alles einfach zusammengesteckt werden kann.
 
-![Picture 15](/docFiles/image7.png)
+![image7](/docFiles/image7.jpeg)
 
 _Figure 6: Zusammengebaut (Photo)_
 
@@ -92,7 +93,7 @@ Hier sehen wir das ganze zusammen (Figure 6).
 
 Im Folgendenen zeigen wir anhand einer Skizze, wie die Verdrahtung genau aussieht.
 
-![](/docFiles/image8.png)
+![](/docFiles/image8.jpeg)
 
 _Figure 7: Verdrahtung_
 
@@ -168,7 +169,7 @@ Unser Sensor kommuniziert über die ic2 Schnittstelle, was in der Initialisierun
 
 Allerdings muss darauf geachtet werden, wo der Code platziert wird. Denn das Das Auslesen der Sensordaten muss vor dem Start der Website erfolgen.
 
-![](RackMultipart20221010-1-rtjmky_html_389c5fcbc2d4c9ab.png)
+![](docFiles/image9.png)
 
 In diesem Screenshot sehen wir, dass der Server nach der Initialisierung und dem Auslesen der Sensoren startet.  server.begin()
 
@@ -178,7 +179,7 @@ Wir verwenden RTC() da wir die Zeit sowohl für das loggen der Zeit in der Json,
 
 Wir speichern in currentTime die aktuelle Zeit und überschreiben diese immer wenn der Sekundenwert sich verändert (Figure 8).
 
-![](RackMultipart20221010-1-rtjmky_html_ea34d12b4ae3edf5.png)
+![](docFiles/image10.png)
 
 _Figure 8: currentTime Verwendung_
 
@@ -196,7 +197,7 @@ Der Bildschirm kommuniziert über die PINs 0, 2 und 15, wie auf der WEMOS-Websit
 
 Bevor der Webserver startet, initialisieren wir den Bildschirm:
 
-![](RackMultipart20221010-1-rtjmky_html_255127d317c60af3.png)
+![](docFiles/image11.png)
 
 _Figure 9: Initialisierung TFT_
 
@@ -224,7 +225,7 @@ Die Graphen erhalten die Werte aus einer Json datei, die in 1 Sekundenabstand de
 
 Zum Zeichnen des Koordinatensystems haben wir eine funktion geschrieben mit dem Namen „drawCoordinateSystem()" (Figure 10).
 
-![](RackMultipart20221010-1-rtjmky_html_68b1110382e9a177.png)
+![](docFiles/image12.png)
 
 _Figure 10: Funktion drawCoordinateSystem_
 
@@ -248,7 +249,7 @@ Dabei stoßen wir auf weitere Probleme mit der Library. Der ausgegebene Text ent
 
 Um dem entgegenzubeugen haben wir eine Zeile in der rgb\_text.py Datei verändert:
 
-![](RackMultipart20221010-1-rtjmky_html_ce7135d91ad31aae.png)
+![](docFiles/image13.png)
 
 _Figure 11: rgb\_text Libraryänderung_
 
@@ -258,7 +259,7 @@ Ursprünglich hatten wir auch an einer anderen Stelle eine Änderung vorgenommen
 
 Daher haben wir einen Trick angewandt, damit die Linie nicht in den Bereich des Koordinatensystems geht: Wir überschreiben die linie einfach mit der Hintergrundfarbe(Figure 12).
 
-![](RackMultipart20221010-1-rtjmky_html_5b4f092b13899730.png)
+![](docFiles/image14.png)
 
 _Figure 12: fill\_rectangle Funktion_
 
@@ -276,7 +277,7 @@ Die x-Richtung stellt die 10 letzten gespeicherten Messungen dar, das bedeutet d
 
 Zum Zeichnen der Graphen auf dem Bildschirm haben wir eine weitere Funktion geschrieben: drawGraphs() (Figure 13).
 
-![](RackMultipart20221010-1-rtjmky_html_98987f5950d4617.png)
+![](docFiles/image15.png)
 
 _Figure 13 drawGraphs Funktion_
 
@@ -302,13 +303,13 @@ Hier haben wir die funktion color565() aus der rgb library verwendet um rgb-Wert
 
 Zum Zeichnen der Sensordaten haben wir die Funktion drawTempHum() (Figure 14) geschrieben. Dadurch werden die Sensordaten fix an de Koordinaten x=5 y=20 und x=5 y= 30 als Text auf dem Bildschirm gezeichnet.
 
-![](RackMultipart20221010-1-rtjmky_html_d47cc576918cbc9f.png)
+![](docFiles/image16.png)
 
 _Figure 14 drawTempHum Funktion_
 
 Hier verwenden wir die von uns geschriebenen Funktionen getTemperature() und getHumidity().
 
-![](RackMultipart20221010-1-rtjmky_html_e8e6408174e5ee08.png)
+![](docFiles/image17.png)
 
 _Figure 15 getTemperature und getHumidity Funktionen_
 
@@ -318,7 +319,7 @@ Da wir den Sensor bereits initialisiert haben können wir diese Funktionen (Figu
 
 Dazu haben wir die Schleife aus der Datei main.py verwendet, die uns zur Verfügung gestellt wurde (main.py) und sie für uns angepasst,
 
-![](RackMultipart20221010-1-rtjmky_html_efa28fd1b369a3f2.png)
+![](docFiles/image18.png)
 
 _Figure 16 Main While Loop_
 
@@ -334,7 +335,7 @@ Wohlgeformtheit was XML angeht, bedeutet dass eine Datei die Regeln von XML korr
 2. Es gibt mindestens ein Datenelement
 3. Es gibt bei den Datenelementen ein äußeres Element, das alle anderen Datenelemente enthält.
 
-![](RackMultipart20221010-1-rtjmky_html_cb7ef0971a089d5e.png)
+![](docFiles/image19.png)
 
 _Figure 17 wohlgeformtes XML von wiki.selfhtml.org_
 
@@ -351,11 +352,11 @@ Werte werden durch ein Komma getrennt, dabei können unendlich viele whitespaces
 
 (vgl. json.org/json-en.html)
 
-![](RackMultipart20221010-1-rtjmky_html_30c2c2b69c120c72.png)
+![](docFiles/image20.png)
 
 _Figure 18: JSON Objekt_
 
-![](RackMultipart20221010-1-rtjmky_html_caf0394daf6c21b1.png)
+![](docFiles/image21.png)
 
 _Figure 19: JSON Array_
 
@@ -369,7 +370,7 @@ Für uns erschien es am sinnvollsten die Json in Arrayform zu gestalten, die dic
 
 Um Daten in JSON-Dateien zu speichern, müssen Sie zunächst die json Library importieren(Figure 20).
 
-![](RackMultipart20221010-1-rtjmky_html_b9b18d4d46615fa5.png)
+![](docFiles/image22.png)
 
 _Figure 20 json Import_
 
@@ -377,7 +378,7 @@ Für das erstellen und/oder Aktualisieren einer JSON-Datei haveb wir die Funktio
 
 Dann speichern wir die aktuellen Sensordaten mit unseren get-Funktionen in die Variablen temp und hum. Außerden speichern wir in measureTime die Zeit.
 
-![](RackMultipart20221010-1-rtjmky_html_87471d3a2e7c0a9f.png)
+![](docFiles/image23.png)
 
 _Figure 21: setJson Funktion_
 
@@ -393,7 +394,7 @@ Im letzten Schritt speichern wir die Daten in die Datei im Rootverzeichnis.
 
 Im späteren Verlauf haben wir die Json noch um die entprechenden Einheiten ergänzt (nicht in der Abbildung): Prozent für Feuchtigkeit und C für Grad Celsius.
 
-![](RackMultipart20221010-1-rtjmky_html_881a26d2d9142393.png)
+![](docFiles/image24.png)
 
 _Figure 22: loadJson Funktion_
 
@@ -409,25 +410,25 @@ Diese haben wir über einen Stringformatter in der Variable „page" gespeichert
 
 Hier findet unsere loadJson() Funktion Verwendung. Sie wird benötigt um unsere gespeicherten Daten in eine Tabelle zu schreiben. Da jedoch der Stringformatter Probleme hat unsere Liste auszulesen, haben wir die daten einzeln in variablen gespeichert. Diese wurden zuvor als leere String initialisiert.
 
-![](RackMultipart20221010-1-rtjmky_html_b06d06f5556380e0.png)
+![](docFiles/image25.png)
 
 _Figure 23: Variablen Initialisierung handleroot_
 
 Da unser rootHandler nicht weiss, wie groß die Json Liste ist, muss erstmal geprüft werden, ob an den jeweiligen Stellen Daten existieren, bevor wir die Variablen überschreiben können (Figure 23).
 
-![](RackMultipart20221010-1-rtjmky_html_a179a4083e2dc5e.png)
+![](docFiles/image26.png)
 
 _Figure 24: Variablenüberschreiben handleroot_
 
 Daher haben wir für jede länge eine Kondition festgelegt, nach der die Daten als String eingetragen werden (Figure 24).
 
-![](RackMultipart20221010-1-rtjmky_html_a63379a3967ba781.png)
+![](docFiles/image27.png)
 
 _Figure 25 Stringformatter Variablenübergabe_
 
 Über den Formatter werden diese Variablen dann in der String der HTML an entsprechenden Stellen eingetragen (Figure 25).
 
-![](RackMultipart20221010-1-rtjmky_html_beedd6ac0fd34e7d.png)
+![](docFiles/image28.png)
 
 _Figure 26: Ausschnitt der HTML String_
 
@@ -435,13 +436,13 @@ _Figure 26: Ausschnitt der HTML String_
 
 Am Ende der Tabelle haben wir einen Downloadbutton eigefügt, über den die Json der Tabelle einfach heruntergeladen werden kann (Figure 27).
 
-![](RackMultipart20221010-1-rtjmky_html_58917ab1030eb597.png)
+![](docFiles/image29.png)
 
 _Figure 27 JSON Download Button_
 
 Die CSS wird im header eingesetzt und das geschieht über die Funktion get\_css (Figure 28).
 
-![](RackMultipart20221010-1-rtjmky_html_6f2c9b16522ee828.png)
+![](docFiles/image30.png)
 
 _Figure 28 get\_css Funktion_
 
@@ -451,7 +452,7 @@ Body legt global die Font, Textfarbe und den Hintergrund fest.
 
 Die Klasse table-header ist für die Kopfzeile unserer Tabelle und die Klasse table-row für die Tabellenzeilen. Die ids temp und hum legen dann für die entsprechenden Spalten die Schriftfarbe und die Textausrichtung fest.
 
-![](RackMultipart20221010-1-rtjmky_html_31e9fa1fd7b55510.png)
+![](docFiles/image31.png)
 
 _Figure 29: Ausgabe im Webbrowser_
 
@@ -463,13 +464,13 @@ Die Seite sieht damit dementsprechend wie in der Abbildung aus (Figure 29).
 
 Da der Server ständig die Verbindung trennte, wenn wir eine zu große HTML Datei hatten, haben wir in der ESP8266WebServer.py in der \_\_sendPage() Funktion die Datengröße beim read Befehl in Zeile 67 von 64 auf -1 gesetzt, damit wir keine Beschränkung für Datengröße haben (Figure 30).
 
-![](RackMultipart20221010-1-rtjmky_html_62b71f2bc812b768.png)
+![](docFiles/image32.png)
 
 _Figure 30: sendPage Änderung_
 
 Außerdem haben wir den timeout der handleClient() Funktion von 5.0 auf 10.0 erhöht, da wir in der main-while-Schleife viele Funktionen hintereinander ausführen, die den request-Prozess ein wenig verzögern können (Figure 31).
 
-![](RackMultipart20221010-1-rtjmky_html_2b11e68e746b0af8.png)
+![](docFiles/image33.png)
 
 _Figure 31: handleClient Funktionsänderung_
 
@@ -477,7 +478,7 @@ Eine Alternative dazu wäre es mit der uasyncio Library den Clienthandler und di
 
 Die Anzahl an Clients, die mit dem Server verbunden sein können war zuvor auf 1 gesetzt. Wir haben die Anzahl erhöht auf 3 in Zeile 38(Figure 32).
 
-![](RackMultipart20221010-1-rtjmky_html_7fe9e0da3007f4ed.png)
+![](docFiles/image34.png)
 
 _Figure 32: Server begin Funktion_
 
