@@ -11,9 +11,6 @@ Gewerblich Technische Schule Offenburg
 
 # Inhaltsverzeichnis
 
-
-[Inhaltsverzeichnis 1](#Inhaltsverzeichnis)
-
 [Einführung 2](#Einführung)
 
 [Verdrahtung der Komponenten 2](#VerdrahtungderKomponenten)
