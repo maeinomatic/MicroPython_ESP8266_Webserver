@@ -487,8 +487,8 @@ _Figure 32: Server begin Funktion_
 
 | Nachname | Vorname | E-Mail |
 | --- | --- | --- |
-| Potozki | Martin | Martin.potozki@gmail.com |
-| Schiff | Marvin | Marvin.schiff@outlook.com |
+| Potozki | Martin | XXXX@gmail.com |
+| Schiff | Marvin | XXXX@outlook.com |
 
 Im Allgemeinen teilten wir uns die Arbeit gut auf. Martin war jedoch für den Python-Code im Allgemeinen verantwortlich, da er die meisten Recherchen auch nach dem Unterricht durchführte. Außerdem blieb er immer sitzen, bis der Code funktioniert.
 
