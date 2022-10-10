@@ -1,10 +1,10 @@
-![Shape1](image1.png) ![Shape2](./docFiles/image1.png)
+![image1](/docFiles/image1.png) ![image2](./docFiles/image2.png)
 
 # Gruppe 3
 
 # – ESP8266 mit TFT und DHT12 Sensor
 
-![Shape3](RackMultipart20221010-1-rtjmky_html_f975c9f71ce59284.gif) ![](RackMultipart20221010-1-rtjmky_html_29af621a46293a40.png)
+![image3](/docFiles/image3.png) ![image4](/docFiles/image4.png)
 
 Potozki Martin & Schiff Marvin
 
