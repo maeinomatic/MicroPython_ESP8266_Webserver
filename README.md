@@ -11,7 +11,6 @@ Gewerblich Technische Schule Offenburg
 
 # Inhaltsverzeichnis
 
-# Inhalt
 
 [Inhaltsverzeichnis 1](#_Toc108400696)
 
