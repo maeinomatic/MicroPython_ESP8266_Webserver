@@ -1,4 +1,4 @@
-![Shape1](RackMultipart20221010-1-rtjmky_html_d8ed857783d2730.gif) ![Shape2](RackMultipart20221010-1-rtjmky_html_2fd398ef0ea37d49.gif)
+![Shape1](image1.png) ![Shape2](docFiles/image1.png)
 
 # Gruppe 3
 
