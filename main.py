@@ -23,11 +23,6 @@ def getHumidity():
     return sensorDht12.humidity()
 
 # Wi-Fi configuration
-#ssid = "Schnaiter69"
-#password = "54736953795579807119"
-
-#ssid="Zyxel-WP"
-#password="c7yvbtZkj4wk"
 
 ssid = "gsog-iot"
 password = "IOT_Projekt_BFK-S_2022"
